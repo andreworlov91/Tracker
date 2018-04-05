@@ -15,10 +15,10 @@ public class StartUI {
     private final Tracker tracker;
 
     /**
-     * Конструтор инициализирующий поля.
+     * РљРѕРЅСЃС‚СЂСѓС‚РѕСЂ РёРЅРёС†РёР°Р»РёР·РёСЂСѓСЋС‰РёР№ РїРѕР»СЏ.
      *
-     * @param input   ввод данных.
-     * @param tracker хранилище заявок.
+     * @param input   РІРІРѕРґ РґР°РЅРЅС‹С….
+     * @param tracker С…СЂР°РЅРёР»РёС‰Рµ Р·Р°СЏРІРѕРє.
      */
     public StartUI(Input input, Tracker tracker) {
         this.input = input;
@@ -26,14 +26,14 @@ public class StartUI {
     }
 
     /**
-     * Метод, который инициализирует выбранный пункт меню.
+     * РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ РёРЅРёС†РёР°Р»РёР·РёСЂСѓРµС‚ РІС‹Р±СЂР°РЅРЅС‹Р№ РїСѓРЅРєС‚ РјРµРЅСЋ.
      */
     public void init() {
         boolean exit = false;
         while (!exit) {
             this.showMenu();
 
-            String answer = this.input.ask("Введите пункт меню : ");
+            String answer = this.input.ask("Р’РІРµРґРёС‚Рµ РїСѓРЅРєС‚ РјРµРЅСЋ : ");
             if (answer.chars().allMatch(Character::isDigit)) {
                 switch (Integer.parseInt(answer)) {
 
@@ -59,114 +59,114 @@ public class StartUI {
                         exit = true;
                         break;
                     default:
-                        System.out.println("Указанный пункт отсутствует в меню! Пожалуйста выберите существующий вариант!" + "\n");
+                        System.out.println("РЈРєР°Р·Р°РЅРЅС‹Р№ РїСѓРЅРєС‚ РѕС‚СЃСѓС‚СЃС‚РІСѓРµС‚ РІ РјРµРЅСЋ! РџРѕР¶Р°Р»СѓР№СЃС‚Р° РІС‹Р±РµСЂРёС‚Рµ СЃСѓС‰РµСЃС‚РІСѓСЋС‰РёР№ РІР°СЂРёР°РЅС‚!" + "\n");
                         break;
                 }
             } else {
-                System.out.println("Можно ввести пункт меню только в числовом формате!" + "\n");
+                System.out.println("РњРѕР¶РЅРѕ РІРІРµСЃС‚Рё РїСѓРЅРєС‚ РјРµРЅСЋ С‚РѕР»СЊРєРѕ РІ С‡РёСЃР»РѕРІРѕРј С„РѕСЂРјР°С‚Рµ!" + "\n");
             }
         }
     }
 
     /**
-     * Метод, который добавляет заявку в список.
+     * РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ РґРѕР±Р°РІР»СЏРµС‚ Р·Р°СЏРІРєСѓ РІ СЃРїРёСЃРѕРє.
      */
     private void createItem() {
-        System.out.println("------------ Добавление новой заявки --------------" + "\n");
-        String name = this.input.ask("Введите имя заявки :");
-        String desc = this.input.ask("Введите описание заявки :");
+        System.out.println("------------ Р”РѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕР№ Р·Р°СЏРІРєРё --------------" + "\n");
+        String name = this.input.ask("Р’РІРµРґРёС‚Рµ РёРјСЏ Р·Р°СЏРІРєРё :");
+        String desc = this.input.ask("Р’РІРµРґРёС‚Рµ РѕРїРёСЃР°РЅРёРµ Р·Р°СЏРІРєРё :");
         Item item = new Item(name, desc);
         this.tracker.add(item);
-        System.out.println("\n" + "------------ Новая заявка с getId : " + item.getId() + " -----------");
+        System.out.println("\n" + "------------ РќРѕРІР°СЏ Р·Р°СЏРІРєР° СЃ getId : " + item.getId() + " -----------");
     }
 
     /**
-     * Метод, который отображает весь список заявок.
+     * РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ РѕС‚РѕР±СЂР°Р¶Р°РµС‚ РІРµСЃСЊ СЃРїРёСЃРѕРє Р·Р°СЏРІРѕРє.
      */
     private void showAlltems() {
         Item[] items = this.tracker.getAll();
-        System.out.println("------------ Отображение списка заявок --------------" + "\n");
+        System.out.println("------------ РћС‚РѕР±СЂР°Р¶РµРЅРёРµ СЃРїРёСЃРєР° Р·Р°СЏРІРѕРє --------------" + "\n");
 
         for (Item item : items) {
             if (item != null) {
-                System.out.println("------------ Заявка с getId : " + item.getId() + " -----------");
-                System.out.println("------------ Заявка с getName : " + item.getName() + " -----------");
-                System.out.println("------------ Заявка с getDescription : " + item.getDescription() + " -----------" + "\n");
+                System.out.println("------------ Р—Р°СЏРІРєР° СЃ getId : " + item.getId() + " -----------");
+                System.out.println("------------ Р—Р°СЏРІРєР° СЃ getName : " + item.getName() + " -----------");
+                System.out.println("------------ Р—Р°СЏРІРєР° СЃ getDescription : " + item.getDescription() + " -----------" + "\n");
             }
         }
     }
 
     /**
-     * Метод, который редактирует заявку.
+     * РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ СЂРµРґР°РєС‚РёСЂСѓРµС‚ Р·Р°СЏРІРєСѓ.
      */
     private void editItem() {
-        System.out.println("------------ Редактирование указанной заявки --------------" + "\n");
-        String id = this.input.ask("Введите Id для поиска заявки из списка :");
+        System.out.println("------------ Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СѓРєР°Р·Р°РЅРЅРѕР№ Р·Р°СЏРІРєРё --------------" + "\n");
+        String id = this.input.ask("Р’РІРµРґРёС‚Рµ Id РґР»СЏ РїРѕРёСЃРєР° Р·Р°СЏРІРєРё РёР· СЃРїРёСЃРєР° :");
         Item itemForEdit = this.tracker.findById(id);
 
-        String name = this.input.ask("Введите имя заявки, которое хотите ей присвоить :");
-        String desc = this.input.ask("Введите описание заявки, которое хотите ей присвоить :");
+        String name = this.input.ask("Р’РІРµРґРёС‚Рµ РёРјСЏ Р·Р°СЏРІРєРё, РєРѕС‚РѕСЂРѕРµ С…РѕС‚РёС‚Рµ РµР№ РїСЂРёСЃРІРѕРёС‚СЊ :");
+        String desc = this.input.ask("Р’РІРµРґРёС‚Рµ РѕРїРёСЃР°РЅРёРµ Р·Р°СЏРІРєРё, РєРѕС‚РѕСЂРѕРµ С…РѕС‚РёС‚Рµ РµР№ РїСЂРёСЃРІРѕРёС‚СЊ :");
 
         itemForEdit.setName(name);
         itemForEdit.setDescription(desc);
 
         this.tracker.replace(id, itemForEdit);
-        System.out.println("\n" + "------------ Редактирование указанной заявки прошло успешно --------------");
+        System.out.println("\n" + "------------ Р РµРґР°РєС‚РёСЂРѕРІР°РЅРёРµ СѓРєР°Р·Р°РЅРЅРѕР№ Р·Р°СЏРІРєРё РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ --------------");
     }
 
     /**
-     * Метод, который удаляет заявку.
+     * РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ СѓРґР°Р»СЏРµС‚ Р·Р°СЏРІРєСѓ.
      */
     private void deleteItem() {
-        System.out.println("------------ Удаление заявки --------------" + "\n");
-        String id = this.input.ask("Введите Id для удаления заявки из списка :");
+        System.out.println("------------ РЈРґР°Р»РµРЅРёРµ Р·Р°СЏРІРєРё --------------" + "\n");
+        String id = this.input.ask("Р’РІРµРґРёС‚Рµ Id РґР»СЏ СѓРґР°Р»РµРЅРёСЏ Р·Р°СЏРІРєРё РёР· СЃРїРёСЃРєР° :");
         this.tracker.delete(id);
 
-        System.out.println("\n" + "------------ Удаление указанной заявки прошло успешно --------------");
+        System.out.println("\n" + "------------ РЈРґР°Р»РµРЅРёРµ СѓРєР°Р·Р°РЅРЅРѕР№ Р·Р°СЏРІРєРё РїСЂРѕС€Р»Рѕ СѓСЃРїРµС€РЅРѕ --------------");
     }
 
     /**
-     * Метод, который находит заявку по Id.
+     * РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ РЅР°С…РѕРґРёС‚ Р·Р°СЏРІРєСѓ РїРѕ Id.
      */
     private void findItemById() {
-        System.out.println("------------ Поиск заявки по Id --------------" + "\n");
-        String id = this.input.ask("Введите Id заявки для поиска её из списка : ");
+        System.out.println("------------ РџРѕРёСЃРє Р·Р°СЏРІРєРё РїРѕ Id --------------" + "\n");
+        String id = this.input.ask("Р’РІРµРґРёС‚Рµ Id Р·Р°СЏРІРєРё РґР»СЏ РїРѕРёСЃРєР° РµС‘ РёР· СЃРїРёСЃРєР° : ");
         Item item = this.tracker.findById(id);
 
-        System.out.println("------------ Найденная заявка --------------" + "\n");
-        System.out.println("------------ Заявка с getName : " + item.getName() + " -----------");
-        System.out.println("------------ Заявка с getDescription : " + item.getDescription() + " -----------");
+        System.out.println("------------ РќР°Р№РґРµРЅРЅР°СЏ Р·Р°СЏРІРєР° --------------" + "\n");
+        System.out.println("------------ Р—Р°СЏРІРєР° СЃ getName : " + item.getName() + " -----------");
+        System.out.println("------------ Р—Р°СЏРІРєР° СЃ getDescription : " + item.getDescription() + " -----------");
     }
 
     /**
-     * Метод, который находит заявку по Имени.
+     * РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ РЅР°С…РѕРґРёС‚ Р·Р°СЏРІРєСѓ РїРѕ РРјРµРЅРё.
      */
     private void findItemByName() {
-        System.out.println("------------ Поиск заявки по Name --------------" + "\n");
-        String name = this.input.ask("Введите Name заявки для поиска её из списка : ");
+        System.out.println("------------ РџРѕРёСЃРє Р·Р°СЏРІРєРё РїРѕ Name --------------" + "\n");
+        String name = this.input.ask("Р’РІРµРґРёС‚Рµ Name Р·Р°СЏРІРєРё РґР»СЏ РїРѕРёСЃРєР° РµС‘ РёР· СЃРїРёСЃРєР° : ");
         Item item = this.tracker.findByName(name);
 
-        System.out.println("------------ Найденная заявка --------------" + "\n");
-        System.out.println("------------ Заявка с getId : " + item.getId() + " -----------");
-        System.out.println("------------ Заявка с getDescription : " + item.getDescription() + " -----------");
+        System.out.println("------------ РќР°Р№РґРµРЅРЅР°СЏ Р·Р°СЏРІРєР° --------------" + "\n");
+        System.out.println("------------ Р—Р°СЏРІРєР° СЃ getId : " + item.getId() + " -----------");
+        System.out.println("------------ Р—Р°СЏРІРєР° СЃ getDescription : " + item.getDescription() + " -----------");
     }
 
     /**
-     * Метод, который отображает меню.
+     * РњРµС‚РѕРґ, РєРѕС‚РѕСЂС‹Р№ РѕС‚РѕР±СЂР°Р¶Р°РµС‚ РјРµРЅСЋ.
      */
     private void showMenu() {
-        System.out.println("Меню.");
+        System.out.println("РњРµРЅСЋ.");
         System.out.println("0. Add new Item\n"
-               + "1. Show all items\n"
-               + "2. Edit item\n"
-               + "3. Delete item\n"
-               + "4. Find item by Id\n"
-               + "5. Find items by name\n"
-               + "6. Exit Program");
+                + "1. Show all items\n"
+                + "2. Edit item\n"
+                + "3. Delete item\n"
+                + "4. Find item by Id\n"
+                + "5. Find items by name\n"
+                + "6. Exit Program");
     }
 
     /**
-     * Запуск программы.
+     * Р—Р°РїСѓСЃРє РїСЂРѕРіСЂР°РјРјС‹.
      *
      * @param args
      */
