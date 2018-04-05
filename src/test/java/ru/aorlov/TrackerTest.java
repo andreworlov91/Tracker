@@ -23,7 +23,7 @@ public class TrackerTest {
     @Test
     public void whenAddNewItemThenTrackerHasSameItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
+        Item item = new Item("test1", "testDescription");
         tracker.add(item);
 
         assertThat(tracker.getAll()[0], is(item));
@@ -35,11 +35,11 @@ public class TrackerTest {
     @Test
     public void whenReplaceNameThenReturnNewName() {
         Tracker tracker = new Tracker();
-        Item previous = new Item("test1", "testDescription", 123L);
+        Item previous = new Item("test1", "testDescription");
         // Добавляем заявку в трекер. Теперь в объект проинициализирован id.
         tracker.add(previous);
         // Создаем новую заявку.
-        Item next = new Item("test2", "testDescription2", 1234L);
+        Item next = new Item("test2", "testDescription2");
         // Проставляем старый id из previous, который был сгенерирован выше.
         next.setId(previous.getId());
         // Обновляем заявку в трекере.
@@ -54,7 +54,7 @@ public class TrackerTest {
     @Test
     public void whenDeleteOfIdThenArrayNotContainsThisItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
+        Item item = new Item("test1", "testDescription");
         tracker.add(item);
         tracker.delete(item.getId());
 
@@ -67,7 +67,7 @@ public class TrackerTest {
     @Test
     public void whenFindByIdThenReturnItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
+        Item item = new Item("test1", "testDescription");
         tracker.add(item);
 
         assertThat(tracker.findById(item.getId()).getName(), is("test1"));
@@ -79,7 +79,7 @@ public class TrackerTest {
     @Test
     public void whenFindByNameThenReturnItem() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
+        Item item = new Item("test1", "testDescription");
         tracker.add(item);
 
         assertThat(tracker.findByName(item.getName()).getName(), is("test1"));
@@ -91,8 +91,8 @@ public class TrackerTest {
     @Test
     public void whenWeAddItemsToArrayAndGetAllWeHaveSameArrays() {
         Tracker tracker = new Tracker();
-        Item item = new Item("test1", "testDescription", 123L);
-        Item nextItem = new Item("test2", "testDescription2", 1234L);
+        Item item = new Item("test1", "testDescription");
+        Item nextItem = new Item("test2", "testDescription2");
         //добавляем заявки в наш массив, проверку которого производим.
         tracker.add(item);
         tracker.add(nextItem);
