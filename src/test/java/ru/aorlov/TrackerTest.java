@@ -1,6 +1,5 @@
 package ru.aorlov;
 
-import org.hamcrest.Matcher;
 import org.junit.Assert;
 import org.junit.Test;
 import ru.aorlov.models.Item;
