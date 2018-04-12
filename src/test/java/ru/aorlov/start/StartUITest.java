@@ -1,12 +1,8 @@
-package ru.aorlov;
+package ru.aorlov.start;
 
 import org.hamcrest.core.IsNull;
 import org.junit.Test;
 import ru.aorlov.models.Item;
-import ru.aorlov.start.Input;
-import ru.aorlov.start.StartUI;
-import ru.aorlov.start.StubInput;
-import ru.aorlov.start.Tracker;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;

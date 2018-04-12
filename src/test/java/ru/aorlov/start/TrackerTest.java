@@ -1,9 +1,8 @@
-package ru.aorlov;
+package ru.aorlov.start;
 
 import org.junit.Assert;
 import org.junit.Test;
 import ru.aorlov.models.Item;
-import ru.aorlov.start.Tracker;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
