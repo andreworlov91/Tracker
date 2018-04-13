@@ -22,11 +22,9 @@ public class TriangleTest {
         Triangle triangle = new Triangle();
         assertThat(triangle.draw(),
                 is(
-                        new StringBuilder()
-                                .append("  + ").append(System.lineSeparator())
-                                .append(" +  +").append(System.lineSeparator())
-                                .append("+    +").append(System.lineSeparator())
-                                .append("++++++")
+                        new StringBuilder().append("  ^  ").append(System.lineSeparator())
+                                .append(" ^ ^ ").append(System.lineSeparator())
+                                .append("^^^^^")
                                 .toString()
                 )
         );
