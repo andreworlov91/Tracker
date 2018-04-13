@@ -3,9 +3,9 @@ package ru.aorlov.models;
 public class Item {
 	private String id;
 
-	public String name;
+	private String name;
 
-	public String description;
+	private String description;
 
 	public Item() {
 
