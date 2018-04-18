@@ -34,6 +34,7 @@ public class PaintTest {
         System.setOut(this.stdout);
         System.out.println("execute after method");
     }
+
     @Test
     public void whenDrawSquare() {
         // выполняем действия пишушиее в консоль.
