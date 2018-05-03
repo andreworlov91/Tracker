@@ -93,9 +93,7 @@ public class StartUITest {
                 new String(this.out.toByteArray()),
                 containsString(
                         new StringBuilder()
-                                .append("------------ Item with getId : " + item.getId() + " -----------" + "\n")
-                                .append("------------ Item with getName : " + item.getName() + " -----------" + "\n")
-                                .append("------------ Item with getDescription : " + item.getDescription() + " -----------" + "\n")
+                                .append(String.format("%s. %s", item.getId(), item.getName()))
                                 .toString()
                 )
         );
@@ -108,14 +106,13 @@ public class StartUITest {
     public void whenWeFindItemByIdThenTrackerHasNameDescriptionOfItem() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("item 1", "description 1"));
-        start(new String[]{"4", item.getId(),"6"}, tracker);
+        start(new String[]{"4", item.getId(), "6"}, tracker);
 
         assertThat(
                 new String(this.out.toByteArray()),
                 containsString(
                         new StringBuilder()
-                                .append("------------ Item with getName : " + item.getName() + " -----------" + "\n")
-                                .append("------------ Item with getDescription : " + item.getDescription() + " -----------" + "\n")
+                                .append(String.format("%s. %s", item.getName(), item.getDescription()))
                                 .toString()
                 )
         );
@@ -128,14 +125,13 @@ public class StartUITest {
     public void whenWeFindItemByNameThenTrackerHasIdDescriptionOfItem() {
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("item 1", "description 1"));
-        start(new String[]{"5", item.getName(),"6"}, tracker);
+        start(new String[]{"5", item.getName(), "6"}, tracker);
 
         assertThat(
                 new String(this.out.toByteArray()),
                 containsString(
                         new StringBuilder()
-                                .append("------------ Item with getId : " + item.getId() + " -----------" + "\n")
-                                .append("------------ Item with getDescription : " + item.getDescription() + " -----------" + "\n")
+                                .append(String.format("%s. %s", item.getId(), item.getDescription()))
                                 .toString()
                 )
         );
