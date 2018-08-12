@@ -1,7 +1,5 @@
 package ru.aorlov.start;
 
-import java.util.List;
-
 public class StubInput extends ValidateInput {
     private String[] answers;
     private int position = 0;
