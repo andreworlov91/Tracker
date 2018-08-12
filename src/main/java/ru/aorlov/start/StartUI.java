@@ -1,5 +1,8 @@
 package ru.aorlov.start;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class StartUI {
     private final Input input;
     private final Tracker tracker;
@@ -20,17 +23,19 @@ public class StartUI {
      */
     public void init() {
         MenuTracker menu = new MenuTracker(this.input, this.tracker);
+        List<Integer> range = new ArrayList<>();
         menu.fillActions();
+        for (int i = 0; i < menu.getActionsLentgh(); i++) {
+            range.add(i);
+        }
         do {
             menu.show();
-            Integer key = Integer.parseInt(this.input.ask("Select: "));
-            menu.select(key);
+            menu.select(input.ask("select:", range));
         } while (!"6".equals(this.input.ask("Exit? (6): ")));
     }
 
     /**
      * Запуск программы.
-     *
      * @param args
      */
     public static void main(String[] args) {

@@ -1,6 +1,8 @@
 package ru.aorlov.start;
 
-public class StubInput implements Input {
+import java.util.List;
+
+public class StubInput extends ValidateInput {
     private String[] answers;
     private int position = 0;
 
@@ -10,10 +12,5 @@ public class StubInput implements Input {
 
     public String ask(String question) {
         return answers[position++];
-    }
-
-    public int ask(String question, int[] range) {
-       // throw new UnsupportedOperationException("Unsupported Operation");
-        return -1;
     }
 }

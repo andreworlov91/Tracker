@@ -21,12 +21,12 @@ public class Tracker {
     private static final Random RN = new Random();
 
     /**
-     * Метод реализаущий добавление заявки в хранилище
+     * Метод реализующий добавление заявки в хранилище
      *
      * @param item новая заявка
      */
     public Item add(Item item) {
-        item.setId(this.generetedId());
+        item.setId(this.generatedId());
         this.items[position++] = item;
 
         return item;
@@ -105,7 +105,7 @@ public class Tracker {
      *
      * @return Уникальный ключ.
      */
-    private String generetedId() {
+    private String generatedId() {
         return String.valueOf(System.currentTimeMillis() + RN.nextInt());
     }
 

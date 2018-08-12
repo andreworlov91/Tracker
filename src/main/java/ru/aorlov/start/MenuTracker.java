@@ -2,7 +2,10 @@ package ru.aorlov.start;
 
 import ru.aorlov.models.Item;
 
- class EditItem implements UserAction {
+import java.util.ArrayList;
+import java.util.List;
+
+class EditItem implements UserAction {
     public int key() {
         return 2;
     }
@@ -28,7 +31,7 @@ public class MenuTracker {
 
     private Input input;
     private Tracker tracker;
-    private UserAction[] actions = new UserAction[6];
+    private List<UserAction> actions = new ArrayList<>();
 
     public MenuTracker(Input input, Tracker tracker) {
         this.input = input;
@@ -36,12 +39,13 @@ public class MenuTracker {
     }
 
     public void fillActions() {
-        this.actions[0] = this.new AddItem();
-        this.actions[1] = new MenuTracker.ShowItems();
-        this.actions[2] = new EditItem();
-        this.actions[3] = new DeleteItem();
-        this.actions[4] = new FindItemById();
-        this.actions[5] = new FindItemByName();
+        this.actions.add(this.new AddItem());
+        this.actions.add(new ShowItems());
+        this.actions.add(new EditItem());
+        this.actions.add(new DeleteItem());
+        this.actions.add(new FindItemById());
+        this.actions.add(new FindItemByName());
+        this.actions.add(new ExitProgram());
     }
 
     public void show() {
@@ -53,7 +57,16 @@ public class MenuTracker {
     }
 
     public void select(int key) {
-        this.actions[key].execute(this.input, this.tracker);
+        this.actions.get(key).execute(this.input, this.tracker);
+    }
+
+    /**
+     * Метод для получения массива меню.
+     *
+     * @return длину массива
+     */
+    public int getActionsLentgh() {
+        return this.actions.size();
     }
 
     private class AddItem implements UserAction {
@@ -69,6 +82,20 @@ public class MenuTracker {
 
         public String info() {
             return String.format("%s. %s", this.key(), "Add the new item.");
+        }
+    }
+
+    private class ExitProgram implements UserAction {
+        public int key() {
+            return 6;
+        }
+
+        public void execute(Input input, Tracker tracker) {
+            System.out.println();
+        }
+
+        public String info() {
+            return String.format("%s. %s", this.key(), "Exit from program.");
         }
     }
 
