@@ -12,9 +12,7 @@ import java.util.List;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 /**
- * //TODO add comments.
- *
- * @author Petr Arsentev (mailto:parsentev@yandex.ru)
+ * @author Orlov Andrew (mailto:stagereagle6@gmail.com)
  * @version $Id$
  * @since 0.1
  */
